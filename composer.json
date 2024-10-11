@@ -1,31 +1,31 @@
 {
-    "name": "essam/laravel-tap-payment",
-    "description": "Tap Payment SDK Package for PHP Laravel",
+    "name": "madar-solutions/laravel-tap-payment",
+    "description": "Laravel package for Tap Payment integration",
     "type": "library",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Sfwan Essam",
-            "email": "sfwanessam9@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
     "require": {
-        "php": "^7.1",
-        "ext-curl": "*",
-        "ext-json": "*",
-        "illuminate/support": "5.6.*|5.7.*|5.8.*|6.*|7.*|8.*"
+        "php": "^8.1",                       // Update PHP to ^8.1
+        "illuminate/support": "^10.0 || ^11.0",  // Support Laravel 10 and Laravel 11
+        // Add other required dependencies here
     },
-    "autoload" : {
-      "psr-4" : {
-        "Essam\\TapPayment\\" : "src/"
-      }
+    "require-dev": {
+        "phpunit/phpunit": "^9.0 || ^10.0"   // Ensure testing works with PHP 8.x
+    },
+    "autoload": {
+        "psr-4": {
+            "MadarSolutions\\TapPayment\\": "src/"
+        }
     },
     "extra": {
-      "laravel": {
-          "providers": [
-              "Essam\\TapPayment\\TapServiceProvider"
-          ]
-      }
-    }
+        "laravel": {
+            "providers": [
+                "MadarSolutions\\TapPayment\\TapPaymentServiceProvider"
+            ],
+            "aliases": {
+                "TapPayment": "MadarSolutions\\TapPayment\\Facades\\TapPayment"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
